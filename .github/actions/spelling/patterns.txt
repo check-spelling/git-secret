@@ -1,0 +1,31 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# asciinema
+\basciinema\.org/a/[0-9a-zA-Z]+
+
+# shields.io
+\bshields\.io/[-\w/%?=&.]*
+
+# URL escaped characters
+\%[0-9A-F]{2}
+
+# macOS temp folders
+/var/folders/\w\w/[+\w]+/(?:T|-Caches-)/
+
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
+
+# https://www.gnu.org/software/groff/manual/groff.html
+# man troff content
+\\f[BCIPR]
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-sx]){3}\s+\d+\s+(\S+)\s+\g{-1}\s+\d+\s+
+# C types
+\s(long|LONG) \g{-1}\s
+# javadoc / .net
+(?:\@(?:groupname|param)|(?:public|private)(?:\s+static|\s+readonly)*)\s+(\w+)\s+\g{-1}\s
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
